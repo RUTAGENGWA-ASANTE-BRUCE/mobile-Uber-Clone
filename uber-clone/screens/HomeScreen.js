@@ -1,4 +1,4 @@
-import { StyleSheet, Text,TextInput, View,SafeAreaView,Image,Button } from 'react-native'
+import { StyleSheet, Text,TextInput, View,SafeAreaView,Image,Button,Pressable } from 'react-native'
 import React from 'react'
 import tw from "tailwind-react-native-classnames"
 import {GooglePlacesAutocomplete} from "react-native-google-places-autocomplete"
@@ -6,12 +6,13 @@ import { useNavigation } from "@react-navigation/native";
 import NavOptions from '../components/NavOptions'
 import { useDispatch } from "react-redux";
 import {setDestination,setOrigin} from "../slices/navSlice"
-import {GOOGLE_MAPS_APIKEY} from "@env";
+// import {GOOGLE_MAPS_APIKEY} from "@env";
+import NavFourites from "../components/NavFavourites"
 const HomeScreen = () => {
   const navigation=useNavigation()
   const dispatch=useDispatch()
   const submitHandler=()=>{
-    navigation.navigate("NavigationCard");
+    navigation.navigate("MapScreen");
   }
   return (
     <SafeAreaView style={tw` h-full`}>
@@ -43,16 +44,17 @@ const HomeScreen = () => {
 
       /> */}
          <TextInput
-        style={{height: 40}}
+    style={{height: 30,}}
         placeholder="Where from?"
         onChangeText={newText =>{
           dispatch(setOrigin({location:newText,description:`My origin is ${newText} `}));
         dispatch(setDestination(setDestination(null)))
         }}
       />
-        <Button title="submit" onPress={submitHandler} />
+         <Pressable   onPress={submitHandler} style={tw`bg-blue-600 h-6 text-center`}><Text style={tw`text-center mt-0.5 text-white`}>Submit</Text></Pressable>
 
       <NavOptions />
+      <NavFourites />
     </View>
 
     </SafeAreaView>
