@@ -10,6 +10,7 @@ import React from "react";
 import tw from "tailwind-react-native-classnames"
 import {Icon} from "react-native-elements"
 import { useNavigation } from "@react-navigation/native";
+
 const data = [
   {
     id: "123",
