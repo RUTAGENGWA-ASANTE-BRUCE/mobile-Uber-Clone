@@ -7,12 +7,13 @@ import MapView from "react-native-maps"
 import Map from '../components/Map'
 import NavigationCard from '../components/NavigationCard';
 import RideOptionsCard from '../components/RideOptionsCard';
-
+import {selectOrigin,selectDestination} from "../slices/navSlice"
+import {useSelector} from "react-redux"
 const MapScreen = () => {
   const Stack=createNativeStackNavigator();
+  const origin=useSelector(selectOrigin);
   return (
     <View>
-      {/* <Text>MapScreen</Text> */}
       <View style={tw`h-1/2`}>
         <Map />
       </View>
@@ -21,6 +22,7 @@ const MapScreen = () => {
       <Stack.Screen name="NavigationCard" component={NavigationCard} options={{headerShown:false}}/>
       <Stack.Screen name="RideOptionsCard" component={RideOptionsCard} options={{headerShown:false}}/>
       </Stack.Navigator>
+      {/* <Text>Your currnent location: {origin.location}</Text> */}
 
       </View>
     </View>
