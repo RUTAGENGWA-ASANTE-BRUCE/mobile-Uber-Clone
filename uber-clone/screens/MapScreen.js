@@ -3,7 +3,6 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import tw from "tailwind-react-native-classnames"
 import MapView from "react-native-maps"
-
 import { useNavigation } from "@react-navigation/native";
 import Map from '../components/Map'
 import NavigationCard from '../components/NavigationCard';
