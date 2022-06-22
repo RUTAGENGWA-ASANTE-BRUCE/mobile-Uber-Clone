@@ -43,10 +43,12 @@ const NavigationCard = () => {
          <TextInput
         style={{height: 30,  backgroundColor:"#DDDDDF",}}
         placeholder="Where to?"
-        onChangeText={newText =>{
+        
+                onChangeText={newText =>{
         dispatch(setDestination({location:newText,description:`My destination  is ${newText} `}))
         }}
       />
+
         <Pressable   onPress={submitHandler} style={tw`bg-blue-600 h-6 text-center`}><Text style={tw`text-center mt-0.5 text-white`}>Submit</Text></Pressable>
         <NavFavourites />
       </View>
@@ -55,6 +57,7 @@ const NavigationCard = () => {
           <Icon name="car" type="font-awesome" color="white" size={16}/>
           <Text style={tw`text-white text-center`}>Rides</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity style={tw`flex flex-row w-24 justify-between w-24  px-4 py-3`}>
           <Icon name="fast-food-outline" type="ionicon" color="black" size={16}/>
           <Text style={tw`text-black text-center`}>Eats</Text>
